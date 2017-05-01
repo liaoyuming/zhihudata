@@ -1,0 +1,16 @@
+{% extends 'website/bootstrap.html' %}
+
+{% load bootstrap3 %}
+
+{% block bootstrap3_content %}
+
+    {% include "website/navbar.html" %}
+
+    <div class="container">
+        
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+        {% block content %}(no content){% endblock %}
+    </div>
+
+{% endblock %}
