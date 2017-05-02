@@ -7,5 +7,31 @@
 {% endblock %}
 
 {% block content %}
-    抓取统计
+    <div class="container">
+        <h2>抓取统计</h2>
+        <p></p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>类别</th>
+                    <th>数量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>用户</td>
+                    <td>{{ statistic_count.user }}</td>
+                </tr>
+                <tr>
+                    <td>问题</td>
+                    <td>{{ statistic_count.question }}</td>
+                </tr>
+                <tr>
+                    <td>回答</td>
+                    <td>{{ statistic_count.answer }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 {% endblock %}

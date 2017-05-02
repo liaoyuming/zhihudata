@@ -27,3 +27,12 @@ class RankingStatisticsPageView(TemplateView):
 
 class FetchingStatisticsPageView(TemplateView):
     template_name = 'app/fetching_statistics.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(FetchingStatisticsPageView, self).get_context_data(**kwargs)
+        context['statistic_count'] = {
+            'user': Users.objects.count(),
+            'answer': Answers.objects.count(),
+            'question': Questions.objects.count(),
+        }
+        return context

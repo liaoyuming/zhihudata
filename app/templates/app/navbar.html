@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-    <div class="container-fluid main-width">
+    <div class="container-fluid container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <a class="navbar-brand" href="/">
@@ -10,21 +10,19 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <li class="active"><a href="">home</a></li>
-                <li><a href="/data_analysis">数据分析</a></li>
-                <li><a href="">排行统计</a></li>
-                <li><a href="">抓取统计</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <!-- <li class="active"><a href="">home</a></li> -->
+                <li {% if request.resolver_match.url_name == 'data_analysis' %} class="active" {% endif %}>
+                    <a href="{% url 'data_analysis' %}">数据分析</a>
+                </li>
+                <li class="dropdown {% if request.resolver_match.url_name == 'ranking_statistics' %} active {% endif %}">
+                    <a href="{% url 'ranking_statistics' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">排行统计<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">粉丝排行</a></li>
+                        <li><a href="#">答案排行</a></li>
                     </ul>
+                </li>
+                <li {% if request.resolver_match.url_name == 'fetching_statistics' %} class="active" {% endif %}>
+                    <a href="{% url 'fetching_statistics' %}">抓取统计</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
