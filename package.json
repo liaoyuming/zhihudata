@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {
+    "gulpfile-django": "^0.0.12"
+  }
+}
