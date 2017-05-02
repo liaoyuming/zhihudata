@@ -1,0 +1,13 @@
+{
+  "name": "zhihu-data",
+  "description": "",
+  "main": "",
+  "authors": [
+    "liaoyuming"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/liaoyuming/zhihudata",
+  "dependencies": {
+    "echarts": "^3.5.4"
+  }
+}

@@ -2,7 +2,7 @@
   "path" : {
     "css": "app/static/css",
     "dist": "app/static/dist",
-    "fonts": "app/staSEtic/fonts",
+    "fonts": "app/static/fonts",
     "image": "app/static/images",
     "js": "app/static/js",
     "sass": "app/static/sass",
