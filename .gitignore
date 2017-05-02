@@ -1,2 +1,4 @@
 node_modules
 app/static/dist
+zhihu_data/settings.py
+zhihu_data/settings.pyc

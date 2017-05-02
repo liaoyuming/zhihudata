@@ -26,7 +26,7 @@ SECRET_KEY = 'wazj!ulvxc&#xxd9y0ynzws(cksrsd%cq$*45y)tqd4+%o0zab'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'zhihudata.com', #local virtual
+    'localhost', #local virtual
 ]
 
 # Application definition
@@ -84,7 +84,7 @@ DATABASES = {
 }
 
 from mongoengine import connect
-connect('zhihu', host='mongodb://118.89.235.208:27017/zhihu');
+connect('database', host='mongodb://xxxx:xx/database');
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
