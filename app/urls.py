@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from website.views import *
+from app.views import *
 
 urlpatterns = [
     url(r'data_analysis$', DataAnalysisPageView.as_view(), name='data_analysis'),

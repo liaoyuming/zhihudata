@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.conf.urls import include, url
-from website import urls
+from app import urls
 
 urlpatterns = [
     url(r'^', include(urls)),
