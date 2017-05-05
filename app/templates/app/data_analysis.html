@@ -1,10 +1,176 @@
 {% extends 'app/base.html' %}
+
 {% load bootstrap3 %}
+{% load helper %}
 
 {% block title %}
     数据分析
 {% endblock %}
 
 {% block content %}
-    数据分析
+    <div class="container">
+        <div class="table-block">
+            <h3>性别分析</h3>
+            <p></p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>性别</th>
+                        <th>人数</th>
+                        <th>比例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>男</td>
+                        <td>{{ statistic.user.gender.male }}</td>
+                        <td>{{ statistic.user.gender.male|divide:statistic.user.gender.all|percent:2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>女</td>
+                        <td>{{ statistic.user.gender.female }}</td>
+                        <td>{{ statistic.user.gender.female|divide:statistic.user.gender.all|percent:2 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-block">
+            <h3>回答问题分析</h3>
+            <p></p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>有无回答问题</th>
+                        <th>人数</th>
+                        <th>比例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>有</td>
+                        <td>{{ statistic.user.answer_count.positive }}</td>
+                        <td>{{ statistic.user.answer_count.positive|divide:statistic.user.answer_count.all|percent:2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>无</td>
+                        <td>{{ statistic.user.answer_count.zero }}</td>
+                        <td>{{ statistic.user.answer_count.zero|divide:statistic.user.answer_count.all|percent:2 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>回答问题数</th>
+                        <th>人数</th>
+                        <th>比例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>{{ statistic.user.answer_count.zero }}</td>
+                        <td>{{ statistic.user.answer_count.zero|divide:statistic.user.answer_count.all|percent:2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>1-10</td>
+                        <td>{{ statistic.user.answer_count.one_to_ten }}</td>
+                        <td>{{ statistic.user.answer_count.one_to_ten|divide:statistic.user.answer_count.all|percent:2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>11-100</td>
+                        <td>{{ statistic.user.answer_count.eleven_to_hundred }}</td>
+                        <td>{{ statistic.user.answer_count.eleven_to_hundred|divide:statistic.user.answer_count.all|percent:2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>100+</td>
+                        <td>{{ statistic.user.answer_count.hundred_to_more }}</td>
+                        <td>{{ statistic.user.answer_count.hundred_to_more|divide:statistic.user.answer_count.all|percent:2 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-block">
+            <h3>粉丝分析</h3>
+            <p></p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>粉丝数</th>
+                        <th>人数</th>
+                        <th>比例</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>{{ statistic.user.follower_count.zero }}</td>
+                            <td>{{ statistic.user.follower_count.zero|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>1-10</td>
+                            <td>{{ statistic.user.follower_count.one_to_ten }}</td>
+                            <td>{{ statistic.user.follower_count.one_to_ten|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>11-100</td>
+                            <td>{{ statistic.user.follower_count.eleven_to_hundred }}</td>
+                            <td>{{ statistic.user.follower_count.eleven_to_hundred|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>101-1000</td>
+                            <td>{{ statistic.user.follower_count.hundred_to_thousand }}</td>
+                            <td>{{ statistic.user.follower_count.hundred_to_thousand|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>1000+</td>
+                            <td>{{ statistic.user.follower_count.thousand_to_more }}</td>
+                            <td>{{ statistic.user.follower_count.thousand_to_more|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-block">
+            <h3>关注分析</h3>
+            <p></p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>关注数</th>
+                        <th>人数</th>
+                        <th>比例</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>{{ statistic.user.following_count.zero }}</td>
+                            <td>{{ statistic.user.following_count.zero|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>1-10</td>
+                            <td>{{ statistic.user.following_count.one_to_ten }}</td>
+                            <td>{{ statistic.user.following_count.one_to_ten|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>11-100</td>
+                            <td>{{ statistic.user.following_count.eleven_to_hundred }}</td>
+                            <td>{{ statistic.user.following_count.eleven_to_hundred|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>101-1000</td>
+                            <td>{{ statistic.user.following_count.hundred_to_thousand }}</td>
+                            <td>{{ statistic.user.following_count.hundred_to_thousand|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>1000+</td>
+                            <td>{{ statistic.user.following_count.thousand_to_more }}</td>
+                            <td>{{ statistic.user.following_count.thousand_to_more|divide:statistic.user.follower_count.all|percent:2 }}</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

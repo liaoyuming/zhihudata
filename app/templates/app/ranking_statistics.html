@@ -7,5 +7,25 @@
 {% endblock %}
 
 {% block content %}
-    排行统计
+
+
+    <div class="container">
+        <div class="row">
+            {% for user in users %}
+                <span></span>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://pic1.zhimg.com/d207fc740062dd0fb3c1170cd1b7af50_is.jpg" alt="头像">
+                        <div class="caption">
+                            <h3>{{ user.name }}</h3>
+                            <p>{{ user.description }}</p>
+                            <p>回答数：{{ user.answer_count }}</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
 {% endblock %}
