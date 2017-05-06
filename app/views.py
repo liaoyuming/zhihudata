@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic.base import TemplateView
 from app.models import *
+from django.core import serializers
+import json
 
 class DataAnalysisPageView(TemplateView):
     template_name = 'app/data_analysis.html'
@@ -15,36 +17,47 @@ class DataAnalysisPageView(TemplateView):
         context['statistic'] = {
             'user': {
                 'gender': {
-                    'all': Users.objects(gender__in=[0, 1]).count(),
-                    'male': Users.objects(gender=0).count(),
-                    'female': Users.objects(gender=1).count(),
+                    'all': Users.objects(gender__in = [0, 1]).count(),
+                    'male': Users.objects(gender = 1).count(),
+                    'female': Users.objects(gender = 0).count(),
                 },
                 'answer_count': {
-                    'all': Users.objects(answer_count__gte=0).count(),
-                    'positive': Users.objects(answer_count__gt=0).count(),
-                    'zero': Users.objects(answer_count=0).count(),
-                    'one_to_ten': Users.objects(Q(answer_count__gte=1) & Q(answer_count__lte=10)).count(),
-                    'eleven_to_hundred': Users.objects(Q(answer_count__gte=11) & Q(answer_count__lte=100)).count(),
-                    'hundred_to_more': Users.objects(answer_count__gte=101).count(),
+                    'all': Users.objects(answer_count__gte = 0).count(),
+                    'positive': Users.objects(answer_count__gt = 0).count(),
+                    'zero': Users.objects(answer_count = 0).count(),
+                    'one_to_ten': Users.objects(Q(answer_count__gte = 1) & Q(answer_count__lte = 10)).count(),
+                    'eleven_to_hundred': Users.objects(Q(answer_count__gte = 11) & Q(answer_count__lte = 100)).count(),
+                    'hundred_to_more': Users.objects(answer_count__gte = 101).count(),
                 },
                 'follower_count': {
-                    'all': Users.objects(follower_count__gte=0).count(),
-                    'zero': Users.objects(follower_count=0).count(),
-                    'one_to_ten': Users.objects(Q(follower_count__gte=1) & Q(follower_count__lte=10)).count(),
-                    'eleven_to_hundred': Users.objects(Q(follower_count__gte=11) & Q(follower_count__lte=100)).count(),
-                    'hundred_to_thousand': Users.objects(Q(follower_count__gte=101) & Q(follower_count__lte=1000)).count(),
-                    'thousand_to_more': Users.objects(follower_count__gte=1001).count(),
+                    'all': Users.objects(follower_count__gte = 0).count(),
+                    'zero': Users.objects(follower_count = 0).count(),
+                    'one_to_ten': Users.objects(Q(follower_count__gte = 1) & Q(follower_count__lte = 10)).count(),
+                    'eleven_to_hundred': Users.objects(Q(follower_count__gte = 11) & Q(follower_count__lte = 100)).count(),
+                    'hundred_to_thousand': Users.objects(Q(follower_count__gte = 101) & Q(follower_count__lte = 1000)).count(),
+                    'thousand_to_more': Users.objects(follower_count__gte = 1001).count(),
                 },
                 'following_count': {
-                    'all': Users.objects(following_count__gte=0).count(),
-                    'zero': Users.objects(following_count=0).count(),
-                    'one_to_ten': Users.objects(Q(following_count__gte=1) & Q(following_count__lte=10)).count(),
-                    'eleven_to_hundred': Users.objects(Q(following_count__gte=11) & Q(following_count__lte=100)).count(),
-                    'hundred_to_thousand': Users.objects(Q(following_count__gte=101) & Q(following_count__lte=1000)).count(),
-                    'thousand_to_more': Users.objects(following_count__gte=1001).count(),
+                    'all': Users.objects(following_count__gte = 0).count(),
+                    'zero': Users.objects(following_count = 0).count(),
+                    'one_to_ten': Users.objects(Q(following_count__gte = 1) & Q(following_count__lte = 10)).count(),
+                    'eleven_to_hundred': Users.objects(Q(following_count__gte = 11) & Q(following_count__lte = 100)).count(),
+                    'hundred_to_thousand': Users.objects(Q(following_count__gte = 101) & Q(following_count__lte = 1000)).count(),
+                    'thousand_to_more': Users.objects(following_count__gte = 1001).count(),
                 },
             }
         }
+        users = Users.objects.all();
+        user_location_statistic = {}
+        for user in users:
+            if user.locations:
+                for location in user.locations:
+                    if (location['name'] in user_location_statistic):
+                        user_location_statistic[location['name']]['count'] += 1
+                    else:
+                        user_location_statistic[location['name']] = { 'count': 1 }
+        context['statistic']['user']['locations'] = user_location_statistic
+
         return context
 
 class RankingStatisticsPageView(TemplateView):
@@ -53,11 +66,11 @@ class RankingStatisticsPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(RankingStatisticsPageView, self).get_context_data(**kwargs)
         page_size = 12
-        page = self.request.GET.get('page') if self.request.GET.get('page') else 1
+        page = int(self.request.GET.get('page')) if self.request.GET.get('page') else 1
         orderby = self.request.GET.get('orderby')
 
         if orderby:
-            user_list = Users.objects.order_by(orderby).skip((page - 1) * page_size).limit(page * page_size)
+            user_list = Users.objects.order_by('-' + orderby).skip((page - 1) * page_size).limit(page * page_size)
         else:
             user_list = Users.objects.skip((page - 1) * page_size).limit(page * page_size)
 

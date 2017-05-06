@@ -13,3 +13,11 @@ def percent(value, precise = 0):
 
 register.filter('divide', divide)
 register.filter('percent', percent)
+
+from django.utils.safestring import mark_safe
+import json
+
+def json_dumps(value):
+    return mark_safe(json.dumps(value))
+
+register.filter('json_dumps', json_dumps)
