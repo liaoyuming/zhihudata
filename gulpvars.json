@@ -1,13 +1,13 @@
 {
   "path" : {
-    "css": "app/static/css",
-    "dist": "app/static/dist",
-    "fonts": "app/static/fonts",
-    "image": "app/static/images",
-    "js": "app/static/js",
-    "sass": "app/static/sass",
+    "dist": "app/static",
+    "css": "app/assets/css",
+    "fonts": "app/assets/fonts",
+    "image": "app/assets/images",
+    "js": "app/assets/js",
+    "sass": "app/assets/sass",
     "template": "app/templates",
-    "theme": "app/static/theme",
+    "theme": "app/assets/theme",
     "vendor": "bower_components"
   },
   "server" : {

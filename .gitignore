@@ -1,5 +1,7 @@
 node_modules
 bower_components
-app/static/dist
+static
+*.pyc
+app/static
 zhihu_data/settings.py
 zhihu_data/settings.pyc
