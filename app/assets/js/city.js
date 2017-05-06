@@ -1,0 +1,1481 @@
+var city = [{
+    "cityId": 1,
+    "name": "北京",
+    "proId": 1,
+}, {
+    "cityId": 2,
+    "name": "天津",
+    "proId": 2,
+}, {
+    "cityId": 3,
+    "name": "上海",
+    "proId": 9,
+}, {
+    "cityId": 4,
+    "name": "重庆",
+    "proId": 27,
+}, {
+    "cityId": 5,
+    "name": "邯郸",
+    "proId": 3,
+}, {
+    "cityId": 6,
+    "name": "石家庄",
+    "proId": 3,
+}, {
+    "cityId": 7,
+    "name": "保定",
+    "proId": 3,
+}, {
+    "cityId": 8,
+    "name": "张家口",
+    "proId": 3,
+}, {
+    "cityId": 9,
+    "name": "承德",
+    "proId": 3,
+}, {
+    "cityId": 10,
+    "name": "唐山",
+    "proId": 3,
+}, {
+    "cityId": 11,
+    "name": "廊坊",
+    "proId": 3,
+}, {
+    "cityId": 12,
+    "name": "沧州",
+    "proId": 3,
+}, {
+    "cityId": 13,
+    "name": "衡水",
+    "proId": 3,
+}, {
+    "cityId": 14,
+    "name": "邢台",
+    "proId": 3,
+}, {
+    "cityId": 16,
+    "name": "朔州",
+    "proId": 4,
+}, {
+    "cityId": 17,
+    "name": "忻州",
+    "proId": 4,
+}, {
+    "cityId": 18,
+    "name": "太原",
+    "proId": 4,
+}, {
+    "cityId": 19,
+    "name": "大同",
+    "proId": 4,
+}, {
+    "cityId": 20,
+    "name": "阳泉",
+    "proId": 4,
+}, {
+    "cityId": 21,
+    "name": "晋中",
+    "proId": 4,
+}, {
+    "cityId": 22,
+    "name": "长治",
+    "proId": 4,
+}, {
+    "cityId": 23,
+    "name": "晋城",
+    "proId": 4,
+}, {
+    "cityId": 24,
+    "name": "临汾",
+    "proId": 4,
+}, {
+    "cityId": 25,
+    "name": "吕梁",
+    "proId": 4,
+}, {
+    "cityId": 26,
+    "name": "运城",
+    "proId": 4,
+}, {
+    "cityId": 27,
+    "name": "沈阳",
+    "proId": 6,
+}, {
+    "cityId": 28,
+    "name": "铁岭",
+    "proId": 6,
+}, {
+    "cityId": 29,
+    "name": "大连",
+    "proId": 6,
+}, {
+    "cityId": 30,
+    "name": "鞍山",
+    "proId": 6,
+}, {
+    "cityId": 31,
+    "name": "抚顺",
+    "proId": 6,
+}, {
+    "cityId": 32,
+    "name": "本溪",
+    "proId": 6,
+}, {
+    "cityId": 33,
+    "name": "丹东",
+    "proId": 6,
+}, {
+    "cityId": 34,
+    "name": "锦州",
+    "proId": 6,
+}, {
+    "cityId": 35,
+    "name": "营口",
+    "proId": 6,
+}, {
+    "cityId": 36,
+    "name": "阜新",
+    "proId": 6,
+}, {
+    "cityId": 37,
+    "name": "辽阳",
+    "proId": 6,
+}, {
+    "cityId": 38,
+    "name": "朝阳",
+    "proId": 6,
+}, {
+    "cityId": 39,
+    "name": "盘锦",
+    "proId": 6,
+}, {
+    "cityId": 40,
+    "name": "葫芦岛",
+    "proId": 6,
+}, {
+    "cityId": 41,
+    "name": "长春",
+    "proId": 7,
+}, {
+    "cityId": 42,
+    "name": "吉林",
+    "proId": 7,
+}, {
+    "cityId": 43,
+    "name": "延边朝鲜族自治州",
+    "proId": 7,
+}, {
+    "cityId": 44,
+    "name": "四平",
+    "proId": 7,
+}, {
+    "cityId": 45,
+    "name": "通化",
+    "proId": 7,
+}, {
+    "cityId": 46,
+    "name": "白城",
+    "proId": 7,
+}, {
+    "cityId": 47,
+    "name": "辽源",
+    "proId": 7,
+}, {
+    "cityId": 48,
+    "name": "松原",
+    "proId": 7,
+}, {
+    "cityId": 49,
+    "name": "白山",
+    "proId": 7,
+}, {
+    "cityId": 50,
+    "name": "哈尔滨",
+    "proId": 8,
+}, {
+    "cityId": 51,
+    "name": "齐齐哈尔",
+    "proId": 8,
+}, {
+    "cityId": 52,
+    "name": "鸡西",
+    "proId": 8,
+}, {
+    "cityId": 53,
+    "name": "牡丹江",
+    "proId": 8,
+}, {
+    "cityId": 54,
+    "name": "七台河",
+    "proId": 8,
+}, {
+    "cityId": 55,
+    "name": "佳木斯",
+    "proId": 8,
+}, {
+    "cityId": 56,
+    "name": "鹤岗",
+    "proId": 8,
+}, {
+    "cityId": 57,
+    "name": "双鸭山",
+    "proId": 8,
+}, {
+    "cityId": 58,
+    "name": "绥化",
+    "proId": 8,
+}, {
+    "cityId": 59,
+    "name": "黑河",
+    "proId": 8,
+}, {
+    "cityId": 60,
+    "name": "大兴安岭",
+    "proId": 8,
+}, {
+    "cityId": 61,
+    "name": "伊春",
+    "proId": 8,
+}, {
+    "cityId": 62,
+    "name": "大庆",
+    "proId": 8,
+}, {
+    "cityId": 63,
+    "name": "南京",
+    "proId": 10,
+}, {
+    "cityId": 64,
+    "name": "无锡",
+    "proId": 10,
+}, {
+    "cityId": 65,
+    "name": "镇江",
+    "proId": 10,
+}, {
+    "cityId": 66,
+    "name": "苏州",
+    "proId": 10,
+}, {
+    "cityId": 67,
+    "name": "南通",
+    "proId": 10,
+}, {
+    "cityId": 68,
+    "name": "扬州",
+    "proId": 10,
+}, {
+    "cityId": 69,
+    "name": "盐城",
+    "proId": 10,
+}, {
+    "cityId": 70,
+    "name": "徐州",
+    "proId": 10,
+}, {
+    "cityId": 71,
+    "name": "淮安",
+    "proId": 10,
+}, {
+    "cityId": 72,
+    "name": "连云港",
+    "proId": 10,
+}, {
+    "cityId": 73,
+    "name": "常州",
+    "proId": 10,
+}, {
+    "cityId": 74,
+    "name": "泰州",
+    "proId": 10,
+}, {
+    "cityId": 75,
+    "name": "宿迁",
+    "proId": 10,
+}, {
+    "cityId": 76,
+    "name": "舟山",
+    "proId": 11,
+}, {
+    "cityId": 77,
+    "name": "衢州",
+    "proId": 11,
+}, {
+    "cityId": 78,
+    "name": "杭州",
+    "proId": 11,
+}, {
+    "cityId": 79,
+    "name": "湖州",
+    "proId": 11,
+}, {
+    "cityId": 80,
+    "name": "嘉兴",
+    "proId": 11,
+}, {
+    "cityId": 81,
+    "name": "宁波",
+    "proId": 11,
+}, {
+    "cityId": 82,
+    "name": "绍兴",
+    "proId": 11,
+}, {
+    "cityId": 83,
+    "name": "温州",
+    "proId": 11,
+}, {
+    "cityId": 84,
+    "name": "丽水",
+    "proId": 11,
+}, {
+    "cityId": 85,
+    "name": "金华",
+    "proId": 11,
+}, {
+    "cityId": 86,
+    "name": "台州",
+    "proId": 11,
+}, {
+    "cityId": 87,
+    "name": "合肥",
+    "proId": 12,
+}, {
+    "cityId": 88,
+    "name": "芜湖",
+    "proId": 12,
+}, {
+    "cityId": 89,
+    "name": "蚌埠",
+    "proId": 12,
+}, {
+    "cityId": 90,
+    "name": "淮南",
+    "proId": 12,
+}, {
+    "cityId": 91,
+    "name": "马鞍山",
+    "proId": 12,
+}, {
+    "cityId": 92,
+    "name": "淮北",
+    "proId": 12,
+}, {
+    "cityId": 93,
+    "name": "铜陵",
+    "proId": 12,
+}, {
+    "cityId": 94,
+    "name": "安庆",
+    "proId": 12,
+}, {
+    "cityId": 95,
+    "name": "黄山",
+    "proId": 12,
+}, {
+    "cityId": 96,
+    "name": "滁州",
+    "proId": 12,
+}, {
+    "cityId": 97,
+    "name": "阜阳",
+    "proId": 12,
+}, {
+    "cityId": 98,
+    "name": "宿州",
+    "proId": 12,
+}, {
+    "cityId": 99,
+    "name": "巢湖",
+    "proId": 12,
+}, {
+    "cityId": 100,
+    "name": "六安",
+    "proId": 12,
+}, {
+    "cityId": 101,
+    "name": "亳州",
+    "proId": 12,
+}, {
+    "cityId": 102,
+    "name": "池州",
+    "proId": 12,
+}, {
+    "cityId": 103,
+    "name": "宣城",
+    "proId": 12,
+}, {
+    "cityId": 104,
+    "name": "福州",
+    "proId": 13,
+}, {
+    "cityId": 105,
+    "name": "厦门",
+    "proId": 13,
+}, {
+    "cityId": 106,
+    "name": "宁德",
+    "proId": 13,
+}, {
+    "cityId": 107,
+    "name": "莆田",
+    "proId": 13,
+}, {
+    "cityId": 108,
+    "name": "泉州",
+    "proId": 13,
+}, {
+    "cityId": 109,
+    "name": "漳州",
+    "proId": 13,
+}, {
+    "cityId": 110,
+    "name": "龙岩",
+    "proId": 13,
+}, {
+    "cityId": 111,
+    "name": "三明",
+    "proId": 13,
+}, {
+    "cityId": 112,
+    "name": "南平",
+    "proId": 13,
+}, {
+    "cityId": 113,
+    "name": "鹰潭",
+    "proId": 14,
+}, {
+    "cityId": 114,
+    "name": "新余",
+    "proId": 14,
+}, {
+    "cityId": 115,
+    "name": "南昌",
+    "proId": 14,
+}, {
+    "cityId": 116,
+    "name": "九江",
+    "proId": 14,
+}, {
+    "cityId": 117,
+    "name": "上饶",
+    "proId": 14,
+}, {
+    "cityId": 118,
+    "name": "抚州",
+    "proId": 14,
+}, {
+    "cityId": 119,
+    "name": "宜春",
+    "proId": 14,
+}, {
+    "cityId": 120,
+    "name": "吉安",
+    "proId": 14,
+}, {
+    "cityId": 121,
+    "name": "赣州",
+    "proId": 14,
+}, {
+    "cityId": 122,
+    "name": "景德镇",
+    "proId": 14,
+}, {
+    "cityId": 123,
+    "name": "萍乡",
+    "proId": 14,
+}, {
+    "cityId": 124,
+    "name": "菏泽",
+    "proId": 15,
+}, {
+    "cityId": 125,
+    "name": "济南",
+    "proId": 15,
+}, {
+    "cityId": 126,
+    "name": "青岛",
+    "proId": 15,
+}, {
+    "cityId": 127,
+    "name": "淄博",
+    "proId": 15,
+}, {
+    "cityId": 128,
+    "name": "德州",
+    "proId": 15,
+}, {
+    "cityId": 129,
+    "name": "烟台",
+    "proId": 15,
+}, {
+    "cityId": 130,
+    "name": "潍坊",
+    "proId": 15,
+}, {
+    "cityId": 131,
+    "name": "济宁",
+    "proId": 15,
+}, {
+    "cityId": 132,
+    "name": "泰安",
+    "proId": 15,
+}, {
+    "cityId": 133,
+    "name": "临沂",
+    "proId": 15,
+}, {
+    "cityId": 134,
+    "name": "滨州",
+    "proId": 15,
+}, {
+    "cityId": 135,
+    "name": "东营",
+    "proId": 15,
+}, {
+    "cityId": 136,
+    "name": "威海",
+    "proId": 15,
+}, {
+    "cityId": 137,
+    "name": "枣庄",
+    "proId": 15,
+}, {
+    "cityId": 138,
+    "name": "日照",
+    "proId": 15,
+}, {
+    "cityId": 139,
+    "name": "莱芜",
+    "proId": 15,
+}, {
+    "cityId": 140,
+    "name": "聊城",
+    "proId": 15,
+}, {
+    "cityId": 141,
+    "name": "商丘",
+    "proId": 16,
+}, {
+    "cityId": 142,
+    "name": "郑州",
+    "proId": 16,
+}, {
+    "cityId": 143,
+    "name": "安阳",
+    "proId": 16,
+}, {
+    "cityId": 144,
+    "name": "新乡",
+    "proId": 16,
+}, {
+    "cityId": 145,
+    "name": "许昌",
+    "proId": 16,
+}, {
+    "cityId": 146,
+    "name": "平顶山",
+    "proId": 16,
+}, {
+    "cityId": 147,
+    "name": "信阳",
+    "proId": 16,
+}, {
+    "cityId": 148,
+    "name": "南阳",
+    "proId": 16,
+}, {
+    "cityId": 149,
+    "name": "开封",
+    "proId": 16,
+}, {
+    "cityId": 150,
+    "name": "洛阳",
+    "proId": 16,
+}, {
+    "cityId": 151,
+    "name": "济源",
+    "proId": 16,
+}, {
+    "cityId": 152,
+    "name": "焦作",
+    "proId": 16,
+}, {
+    "cityId": 153,
+    "name": "鹤壁",
+    "proId": 16,
+}, {
+    "cityId": 154,
+    "name": "濮阳",
+    "proId": 16,
+}, {
+    "cityId": 155,
+    "name": "周口",
+    "proId": 16,
+}, {
+    "cityId": 156,
+    "name": "漯河",
+    "proId": 16,
+}, {
+    "cityId": 157,
+    "name": "驻马店",
+    "proId": 16,
+}, {
+    "cityId": 158,
+    "name": "三门峡",
+    "proId": 16,
+}, {
+    "cityId": 159,
+    "name": "武汉",
+    "proId": 17,
+}, {
+    "cityId": 160,
+    "name": "襄樊",
+    "proId": 17,
+}, {
+    "cityId": 161,
+    "name": "鄂州",
+    "proId": 17,
+}, {
+    "cityId": 162,
+    "name": "孝感",
+    "proId": 17,
+}, {
+    "cityId": 163,
+    "name": "黄冈",
+    "proId": 17,
+}, {
+    "cityId": 164,
+    "name": "黄石",
+    "proId": 17,
+}, {
+    "cityId": 165,
+    "name": "咸宁",
+    "proId": 17,
+}, {
+    "cityId": 166,
+    "name": "荆州",
+    "proId": 17,
+}, {
+    "cityId": 167,
+    "name": "宜昌",
+    "proId": 17,
+}, {
+    "cityId": 168,
+    "name": "恩施土家族苗族自治州",
+    "proId": 17,
+}, {
+    "cityId": 169,
+    "name": "神农架林区",
+    "proId": 17,
+}, {
+    "cityId": 170,
+    "name": "十堰",
+    "proId": 17,
+}, {
+    "cityId": 171,
+    "name": "随州",
+    "proId": 17,
+}, {
+    "cityId": 172,
+    "name": "荆门",
+    "proId": 17,
+}, {
+    "cityId": 173,
+    "name": "仙桃",
+    "proId": 17,
+}, {
+    "cityId": 174,
+    "name": "天门",
+    "proId": 17,
+}, {
+    "cityId": 175,
+    "name": "潜江",
+    "proId": 17,
+}, {
+    "cityId": 176,
+    "name": "岳阳",
+    "proId": 18,
+}, {
+    "cityId": 177,
+    "name": "长沙",
+    "proId": 18,
+}, {
+    "cityId": 178,
+    "name": "湘潭",
+    "proId": 18,
+}, {
+    "cityId": 179,
+    "name": "株洲",
+    "proId": 18,
+}, {
+    "cityId": 180,
+    "name": "衡阳",
+    "proId": 18,
+}, {
+    "cityId": 181,
+    "name": "郴州",
+    "proId": 18,
+}, {
+    "cityId": 182,
+    "name": "常德",
+    "proId": 18,
+}, {
+    "cityId": 183,
+    "name": "益阳",
+    "proId": 18,
+}, {
+    "cityId": 184,
+    "name": "娄底",
+    "proId": 18,
+}, {
+    "cityId": 185,
+    "name": "邵阳",
+    "proId": 18,
+}, {
+    "cityId": 186,
+    "name": "湘西土家族苗族自治州",
+    "proId": 18,
+}, {
+    "cityId": 187,
+    "name": "张家界",
+    "proId": 18,
+}, {
+    "cityId": 188,
+    "name": "怀化",
+    "proId": 18,
+}, {
+    "cityId": 189,
+    "name": "永州",
+    "proId": 18,
+}, {
+    "cityId": 190,
+    "name": "广州",
+    "proId": 19,
+}, {
+    "cityId": 191,
+    "name": "汕尾",
+    "proId": 19,
+}, {
+    "cityId": 192,
+    "name": "阳江",
+    "proId": 19,
+}, {
+    "cityId": 193,
+    "name": "揭阳",
+    "proId": 19,
+}, {
+    "cityId": 194,
+    "name": "茂名",
+    "proId": 19,
+}, {
+    "cityId": 195,
+    "name": "惠州",
+    "proId": 19,
+}, {
+    "cityId": 196,
+    "name": "江门",
+    "proId": 19,
+}, {
+    "cityId": 197,
+    "name": "韶关",
+    "proId": 19,
+}, {
+    "cityId": 198,
+    "name": "梅州",
+    "proId": 19,
+}, {
+    "cityId": 199,
+    "name": "汕头",
+    "proId": 19,
+}, {
+    "cityId": 200,
+    "name": "深圳",
+    "proId": 19,
+}, {
+    "cityId": 201,
+    "name": "珠海",
+    "proId": 19,
+}, {
+    "cityId": 202,
+    "name": "佛山",
+    "proId": 19,
+}, {
+    "cityId": 203,
+    "name": "肇庆",
+    "proId": 19,
+}, {
+    "cityId": 204,
+    "name": "湛江",
+    "proId": 19,
+}, {
+    "cityId": 205,
+    "name": "中山",
+    "proId": 19,
+}, {
+    "cityId": 206,
+    "name": "河源",
+    "proId": 19,
+}, {
+    "cityId": 207,
+    "name": "清远",
+    "proId": 19,
+}, {
+    "cityId": 208,
+    "name": "云浮",
+    "proId": 19,
+}, {
+    "cityId": 209,
+    "name": "潮州",
+    "proId": 19,
+}, {
+    "cityId": 210,
+    "name": "东莞",
+    "proId": 19,
+}, {
+    "cityId": 211,
+    "name": "兰州",
+    "proId": 22,
+}, {
+    "cityId": 212,
+    "name": "金昌",
+    "proId": 22,
+}, {
+    "cityId": 213,
+    "name": "白银",
+    "proId": 22,
+}, {
+    "cityId": 214,
+    "name": "天水",
+    "proId": 22,
+}, {
+    "cityId": 215,
+    "name": "嘉峪关",
+    "proId": 22,
+}, {
+    "cityId": 216,
+    "name": "武威",
+    "proId": 22,
+}, {
+    "cityId": 217,
+    "name": "张掖",
+    "proId": 22,
+}, {
+    "cityId": 218,
+    "name": "平凉",
+    "proId": 22,
+}, {
+    "cityId": 219,
+    "name": "酒泉",
+    "proId": 22,
+}, {
+    "cityId": 220,
+    "name": "庆阳",
+    "proId": 22,
+}, {
+    "cityId": 221,
+    "name": "定西",
+    "proId": 22,
+}, {
+    "cityId": 222,
+    "name": "陇南",
+    "proId": 22,
+}, {
+    "cityId": 223,
+    "name": "临夏回族自治州",
+    "proId": 22,
+}, {
+    "cityId": 224,
+    "name": "甘南藏族自治州",
+    "proId": 22,
+}, {
+    "cityId": 225,
+    "name": "成都",
+    "proId": 28,
+}, {
+    "cityId": 226,
+    "name": "攀枝花",
+    "proId": 28,
+}, {
+    "cityId": 227,
+    "name": "自贡",
+    "proId": 28,
+}, {
+    "cityId": 228,
+    "name": "绵阳",
+    "proId": 28,
+}, {
+    "cityId": 229,
+    "name": "南充",
+    "proId": 28,
+}, {
+    "cityId": 230,
+    "name": "达州",
+    "proId": 28,
+}, {
+    "cityId": 231,
+    "name": "遂宁",
+    "proId": 28,
+}, {
+    "cityId": 232,
+    "name": "广安",
+    "proId": 28,
+}, {
+    "cityId": 233,
+    "name": "巴中",
+    "proId": 28,
+}, {
+    "cityId": 234,
+    "name": "泸州",
+    "proId": 28,
+}, {
+    "cityId": 235,
+    "name": "宜宾",
+    "proId": 28,
+}, {
+    "cityId": 236,
+    "name": "资阳",
+    "proId": 28,
+}, {
+    "cityId": 237,
+    "name": "内江",
+    "proId": 28,
+}, {
+    "cityId": 238,
+    "name": "乐山",
+    "proId": 28,
+}, {
+    "cityId": 239,
+    "name": "眉山",
+    "proId": 28,
+}, {
+    "cityId": 240,
+    "name": "凉山彝族自治州",
+    "proId": 28,
+}, {
+    "cityId": 241,
+    "name": "雅安",
+    "proId": 28,
+}, {
+    "cityId": 242,
+    "name": "甘孜藏族自治州",
+    "proId": 28,
+}, {
+    "cityId": 243,
+    "name": "阿坝藏族羌族自治州",
+    "proId": 28,
+}, {
+    "cityId": 244,
+    "name": "德阳",
+    "proId": 28,
+}, {
+    "cityId": 245,
+    "name": "广元",
+    "proId": 28,
+}, {
+    "cityId": 246,
+    "name": "贵阳",
+    "proId": 29,
+}, {
+    "cityId": 247,
+    "name": "遵义",
+    "proId": 29,
+}, {
+    "cityId": 248,
+    "name": "安顺",
+    "proId": 29,
+}, {
+    "cityId": 249,
+    "name": "黔南布依族苗族自治州",
+    "proId": 29,
+}, {
+    "cityId": 250,
+    "name": "黔东南苗族侗族自治州",
+    "proId": 29,
+}, {
+    "cityId": 251,
+    "name": "铜仁",
+    "proId": 29,
+}, {
+    "cityId": 252,
+    "name": "毕节",
+    "proId": 29,
+}, {
+    "cityId": 253,
+    "name": "六盘水",
+    "proId": 29,
+}, {
+    "cityId": 254,
+    "name": "黔西南布依族苗族自治州",
+    "proId": 29,
+}, {
+    "cityId": 255,
+    "name": "海口",
+    "proId": 20,
+}, {
+    "cityId": 256,
+    "name": "三亚",
+    "proId": 20,
+}, {
+    "cityId": 257,
+    "name": "五指山",
+    "proId": 20,
+}, {
+    "cityId": 258,
+    "name": "琼海",
+    "proId": 20,
+}, {
+    "cityId": 259,
+    "name": "儋州",
+    "proId": 20,
+}, {
+    "cityId": 260,
+    "name": "文昌",
+    "proId": 20,
+}, {
+    "cityId": 261,
+    "name": "万宁",
+    "proId": 20,
+}, {
+    "cityId": 262,
+    "name": "东方",
+    "proId": 20,
+}, {
+    "cityId": 263,
+    "name": "澄迈县",
+    "proId": 20,
+}, {
+    "cityId": 264,
+    "name": "定安县",
+    "proId": 20,
+}, {
+    "cityId": 265,
+    "name": "屯昌县",
+    "proId": 20,
+}, {
+    "cityId": 266,
+    "name": "临高县",
+    "proId": 20,
+}, {
+    "cityId": 267,
+    "name": "白沙黎族自治县",
+    "proId": 20,
+}, {
+    "cityId": 268,
+    "name": "昌江黎族自治县",
+    "proId": 20,
+}, {
+    "cityId": 269,
+    "name": "乐东黎族自治县",
+    "proId": 20,
+}, {
+    "cityId": 270,
+    "name": "陵水黎族自治县",
+    "proId": 20,
+}, {
+    "cityId": 271,
+    "name": "保亭黎族苗族自治县",
+    "proId": 20,
+}, {
+    "cityId": 272,
+    "name": "琼中黎族苗族自治县",
+    "proId": 20,
+}, {
+    "cityId": 273,
+    "name": "西双版纳傣族自治州",
+    "proId": 30,
+}, {
+    "cityId": 274,
+    "name": "德宏傣族景颇族自治州",
+    "proId": 30,
+}, {
+    "cityId": 275,
+    "name": "昭通",
+    "proId": 30,
+}, {
+    "cityId": 276,
+    "name": "昆明",
+    "proId": 30,
+}, {
+    "cityId": 277,
+    "name": "大理白族自治州",
+    "proId": 30,
+}, {
+    "cityId": 278,
+    "name": "红河哈尼族彝族自治州",
+    "proId": 30,
+}, {
+    "cityId": 279,
+    "name": "曲靖",
+    "proId": 30,
+}, {
+    "cityId": 280,
+    "name": "保山",
+    "proId": 30,
+}, {
+    "cityId": 281,
+    "name": "文山壮族苗族自治州",
+    "proId": 30,
+}, {
+    "cityId": 282,
+    "name": "玉溪",
+    "proId": 30,
+}, {
+    "cityId": 283,
+    "name": "楚雄彝族自治州",
+    "proId": 30,
+}, {
+    "cityId": 284,
+    "name": "普洱",
+    "proId": 30,
+}, {
+    "cityId": 285,
+    "name": "临沧",
+    "proId": 30,
+}, {
+    "cityId": 286,
+    "name": "怒江傈傈族自治州",
+    "proId": 30,
+}, {
+    "cityId": 287,
+    "name": "迪庆藏族自治州",
+    "proId": 30,
+}, {
+    "cityId": 288,
+    "name": "丽江",
+    "proId": 30,
+}, {
+    "cityId": 289,
+    "name": "海北藏族自治州",
+    "proId": 25,
+}, {
+    "cityId": 290,
+    "name": "西宁",
+    "proId": 25,
+}, {
+    "cityId": 291,
+    "name": "海东",
+    "proId": 25,
+}, {
+    "cityId": 292,
+    "name": "黄南藏族自治州",
+    "proId": 25,
+}, {
+    "cityId": 293,
+    "name": "海南藏族自治州",
+    "proId": 25,
+}, {
+    "cityId": 294,
+    "name": "果洛藏族自治州",
+    "proId": 25,
+}, {
+    "cityId": 295,
+    "name": "玉树藏族自治州",
+    "proId": 25,
+}, {
+    "cityId": 296,
+    "name": "海西蒙古族藏族自治州",
+    "proId": 25,
+}, {
+    "cityId": 297,
+    "name": "西安",
+    "proId": 23,
+}, {
+    "cityId": 298,
+    "name": "咸阳",
+    "proId": 23,
+}, {
+    "cityId": 299,
+    "name": "延安",
+    "proId": 23,
+}, {
+    "cityId": 300,
+    "name": "榆林",
+    "proId": 23,
+}, {
+    "cityId": 301,
+    "name": "渭南",
+    "proId": 23,
+}, {
+    "cityId": 302,
+    "name": "商洛",
+    "proId": 23,
+}, {
+    "cityId": 303,
+    "name": "安康",
+    "proId": 23,
+}, {
+    "cityId": 304,
+    "name": "汉中",
+    "proId": 23,
+}, {
+    "cityId": 305,
+    "name": "宝鸡",
+    "proId": 23,
+}, {
+    "cityId": 306,
+    "name": "铜川",
+    "proId": 23,
+}, {
+    "cityId": 307,
+    "name": "防城港",
+    "proId": 21,
+}, {
+    "cityId": 308,
+    "name": "南宁",
+    "proId": 21,
+}, {
+    "cityId": 309,
+    "name": "崇左",
+    "proId": 21,
+}, {
+    "cityId": 310,
+    "name": "来宾",
+    "proId": 21,
+}, {
+    "cityId": 311,
+    "name": "柳州",
+    "proId": 21,
+}, {
+    "cityId": 312,
+    "name": "桂林",
+    "proId": 21,
+}, {
+    "cityId": 313,
+    "name": "梧州",
+    "proId": 21,
+}, {
+    "cityId": 314,
+    "name": "贺州",
+    "proId": 21,
+}, {
+    "cityId": 315,
+    "name": "贵港",
+    "proId": 21,
+}, {
+    "cityId": 316,
+    "name": "玉林",
+    "proId": 21,
+}, {
+    "cityId": 317,
+    "name": "百色",
+    "proId": 21,
+}, {
+    "cityId": 318,
+    "name": "钦州",
+    "proId": 21,
+}, {
+    "cityId": 319,
+    "name": "河池",
+    "proId": 21,
+}, {
+    "cityId": 320,
+    "name": "北海",
+    "proId": 21,
+}, {
+    "cityId": 321,
+    "name": "拉萨",
+    "proId": 31,
+}, {
+    "cityId": 322,
+    "name": "日喀则",
+    "proId": 31,
+}, {
+    "cityId": 323,
+    "name": "山南",
+    "proId": 31,
+}, {
+    "cityId": 324,
+    "name": "林芝",
+    "proId": 31,
+}, {
+    "cityId": 325,
+    "name": "昌都",
+    "proId": 31,
+}, {
+    "cityId": 326,
+    "name": "那曲",
+    "proId": 31,
+}, {
+    "cityId": 327,
+    "name": "阿里",
+    "proId": 31,
+}, {
+    "cityId": 328,
+    "name": "银川",
+    "proId": 26,
+}, {
+    "cityId": 329,
+    "name": "石嘴山",
+    "proId": 26,
+}, {
+    "cityId": 330,
+    "name": "吴忠",
+    "proId": 26,
+}, {
+    "cityId": 331,
+    "name": "固原",
+    "proId": 26,
+}, {
+    "cityId": 332,
+    "name": "中卫",
+    "proId": 26,
+}, {
+    "cityId": 333,
+    "name": "塔城",
+    "proId": 24,
+}, {
+    "cityId": 334,
+    "name": "哈密",
+    "proId": 24,
+}, {
+    "cityId": 335,
+    "name": "和田",
+    "proId": 24,
+}, {
+    "cityId": 336,
+    "name": "阿勒泰",
+    "proId": 24,
+}, {
+    "cityId": 337,
+    "name": "克孜勒苏柯尔克孜自治州",
+    "proId": 24,
+}, {
+    "cityId": 338,
+    "name": "博尔塔拉蒙古自治州",
+    "proId": 24,
+}, {
+    "cityId": 339,
+    "name": "克拉玛依",
+    "proId": 24,
+}, {
+    "cityId": 340,
+    "name": "乌鲁木齐",
+    "proId": 24,
+}, {
+    "cityId": 341,
+    "name": "石河子",
+    "proId": 24,
+}, {
+    "cityId": 342,
+    "name": "昌吉回族自治州",
+    "proId": 24,
+}, {
+    "cityId": 343,
+    "name": "五家渠",
+    "proId": 24,
+}, {
+    "cityId": 344,
+    "name": "吐鲁番",
+    "proId": 24,
+}, {
+    "cityId": 345,
+    "name": "巴音郭楞蒙古自治州",
+    "proId": 24,
+}, {
+    "cityId": 346,
+    "name": "阿克苏",
+    "proId": 24,
+}, {
+    "cityId": 347,
+    "name": "阿拉尔",
+    "proId": 24,
+}, {
+    "cityId": 348,
+    "name": "喀什",
+    "proId": 24,
+}, {
+    "cityId": 349,
+    "name": "图木舒克",
+    "proId": 24,
+}, {
+    "cityId": 350,
+    "name": "伊犁哈萨克自治州",
+    "proId": 24,
+}, {
+    "cityId": 351,
+    "name": "呼伦贝尔",
+    "proId": 5,
+}, {
+    "cityId": 352,
+    "name": "呼和浩特",
+    "proId": 5,
+}, {
+    "cityId": 353,
+    "name": "包头",
+    "proId": 5,
+}, {
+    "cityId": 354,
+    "name": "乌海",
+    "proId": 5,
+}, {
+    "cityId": 355,
+    "name": "乌兰察布",
+    "proId": 5,
+}, {
+    "cityId": 356,
+    "name": "通辽",
+    "proId": 5,
+}, {
+    "cityId": 357,
+    "name": "赤峰",
+    "proId": 5,
+}, {
+    "cityId": 358,
+    "name": "鄂尔多斯",
+    "proId": 5,
+}, {
+    "cityId": 359,
+    "name": "巴彦淖尔",
+    "proId": 5,
+}, {
+    "cityId": 360,
+    "name": "锡林郭勒盟",
+    "proId": 5,
+}, {
+    "cityId": 361,
+    "name": "兴安盟",
+    "proId": 5,
+}, {
+    "cityId": 362,
+    "name": "阿拉善盟",
+    "proId": 5,
+}, {
+    "cityId": 363,
+    "name": "台北",
+    "proId": 32,
+}, {
+    "cityId": 364,
+    "name": "高雄",
+    "proId": 32,
+}, {
+    "cityId": 365,
+    "name": "基隆",
+    "proId": 32,
+}, {
+    "cityId": 366,
+    "name": "台中",
+    "proId": 32,
+}, {
+    "cityId": 367,
+    "name": "台南",
+    "proId": 32,
+}, {
+    "cityId": 368,
+    "name": "新竹",
+    "proId": 32,
+}, {
+    "cityId": 369,
+    "name": "嘉义",
+    "proId": 32,
+}, {
+    "cityId": 370,
+    "name": "澳门",
+    "proId": 33,
+}, {
+    "cityId": 371,
+    "name": "香港",
+    "proId": 34,
+}]

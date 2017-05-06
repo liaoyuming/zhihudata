@@ -1,0 +1,137 @@
+var province = [{
+    "proId": 1,
+    "name": "北京",
+    "proRemark": "直辖市"
+}, {
+    "proId": 2,
+    "name": "天津",
+    "proRemark": "直辖市"
+}, {
+    "proId": 3,
+    "name": "河北",
+    "proRemark": "省份"
+}, {
+    "proId": 4,
+    "name": "山西",
+    "proRemark": "省份"
+}, {
+    "proId": 5,
+    "name": "内蒙古",
+    "proRemark": "自治区"
+}, {
+    "proId": 6,
+    "name": "辽宁",
+    "proRemark": "省份"
+}, {
+    "proId": 7,
+    "name": "吉林",
+    "proRemark": "省份"
+}, {
+    "proId": 8,
+    "name": "黑龙江",
+    "proRemark": "省份"
+}, {
+    "proId": 9,
+    "name": "上海",
+    "proRemark": "直辖市"
+}, {
+    "proId": 10,
+    "name": "江苏",
+    "proRemark": "省份"
+}, {
+    "proId": 11,
+    "name": "浙江",
+    "proRemark": "省份"
+}, {
+    "proId": 12,
+    "name": "安徽",
+    "proRemark": "省份"
+}, {
+    "proId": 13,
+    "name": "福建",
+    "proRemark": "省份"
+}, {
+    "proId": 14,
+    "name": "江西",
+    "proRemark": "省份"
+}, {
+    "proId": 15,
+    "name": "山东",
+    "proRemark": "省份"
+}, {
+    "proId": 16,
+    "name": "河南",
+    "proRemark": "省份"
+}, {
+    "proId": 17,
+    "name": "湖北",
+    "proRemark": "省份"
+}, {
+    "proId": 18,
+    "name": "湖南",
+    "proRemark": "省份"
+}, {
+    "proId": 19,
+    "name": "广东",
+    "proRemark": "省份"
+}, {
+    "proId": 20,
+    "name": "海南",
+    "proRemark": "省份"
+}, {
+    "proId": 21,
+    "name": "广西壮族自治区",
+    "proRemark": "自治区"
+}, {
+    "proId": 22,
+    "name": "甘肃",
+    "proRemark": "省份"
+}, {
+    "proId": 23,
+    "name": "陕西",
+    "proRemark": "省份"
+}, {
+    "proId": 24,
+    "name": "新疆",
+    "proRemark": "自治区"
+}, {
+    "proId": 25,
+    "name": "青海",
+    "proRemark": "省份"
+}, {
+    "proId": 26,
+    "name": "宁夏",
+    "proRemark": "自治区"
+}, {
+    "proId": 27,
+    "name": "重庆",
+    "proRemark": "直辖市"
+}, {
+    "proId": 28,
+    "name": "四川",
+    "proRemark": "省份"
+}, {
+    "proId": 29,
+    "name": "贵州",
+    "proRemark": "省份"
+}, {
+    "proId": 30,
+    "name": "云南",
+    "proRemark": "省份"
+}, {
+    "proId": 31,
+    "name": "西藏",
+    "proRemark": "自治区"
+}, {
+    "proId": 32,
+    "name": "台湾",
+    "proRemark": "省份"
+}, {
+    "proId": 33,
+    "name": "澳门",
+    "proRemark": "特别行政区"
+}, {
+    "proId": 34,
+    "name": "香港",
+    "proRemark": "特别行政区"
+}]
