@@ -15,8 +15,16 @@ Including another URLconf
 """
 
 from django.conf.urls import include, url
+from django.conf import settings
 from app import urls
+from django.contrib.staticfiles import views
+
 
 urlpatterns = [
     url(r'^', include(urls)),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^static/(?P<path>.*)$', views.serve),
+    ]
