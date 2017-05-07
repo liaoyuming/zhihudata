@@ -9,7 +9,6 @@
 {% endblock %}
 
 {% block content %}
-    {{ user_location_statistic }}
     <div class="container">
         <div class="table-block">
             <h3>性别分析</h3>
@@ -182,6 +181,7 @@
     <div id="user_follower_count_statistic" style="width: 600px;height:400px;"></div>
     <div id="user_following_count_statistic" style="width: 600px;height:400px;"></div>
     <div id="user_locations_statistic" style="width: 600px;height:400px;"></div>
+    <div id="user_locations_statistic_map" style="width: 600px;height:400px;"></div>
 
 {% endblock %}
 
@@ -194,7 +194,7 @@
 {% block script %}
     <script type="text/javascript">
         $(function() {
-            dataAnalysis.init({{ statistic|json_dumps }});
+            App.DataAnalysis.init({{ statistic|json_dumps }});
         });
     </script>
 {% endblock %}

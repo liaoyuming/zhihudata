@@ -1,4 +1,4 @@
-var city = [{
+module.exports = [{
     "cityId": 1,
     "name": "北京",
     "proId": 1,

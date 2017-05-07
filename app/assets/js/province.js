@@ -1,4 +1,4 @@
-var province = [{
+module.exports = [{
     "proId": 1,
     "name": "北京",
     "proRemark": "直辖市"

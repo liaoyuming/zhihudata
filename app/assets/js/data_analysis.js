@@ -1,72 +1,10 @@
-var dataAnalysis = {
+module.exports = {
     init: function (statistic) {
-
-        // var $data = [];
-        // var $normalColor =  '#EAE5D3';
-        // var $emphasisColorArray = ['#8D7B61', '#C5A270', '#DDC89E', '#FFB63D', '#8D7B51'];
-        var $this = this;
-
-        $this.userGenderStatisticChartInit(statistic.user.gender);
-        $this.userAnswerCountStatisticChartInit(statistic.user.answer_count);
-        $this.userFollowerCountStatisticChartInit(statistic.user.follower_count);
-        $this.userFollowingCountStatisticChartInit(statistic.user.following_count);
-        $this.userLocationsStatisticChartInit(statistic.user.locations);
-
-        // $.each($map, function (key, item) {
-        //     $data.push({
-        //         name: item.title,
-        //         itemStyle: {
-        //             emphasis: {
-        //                 areaColor: $emphasisColorArray[$this.getRandomInt(0, 3)],
-        //             }
-        //         },
-        //         label: {
-        //             emphasis: {
-        //                 show: true,
-        //             },
-        //         },
-        //         selected: true,
-        //     });
-        // });
-        //
-        // var $chart = echarts.init($('.map-container')[0]);
-        // $chart.setOption({
-        //     series: [{
-        //         type: 'map',
-        //         map: 'china',
-        //         zoom: 1.2,
-        //         roam: true,
-        //         scaleLimit:{
-        //             min: 1,
-        //             max: 3,
-        //         },
-        //         itemStyle: {
-        //             normal: {
-        //                 areaColor: $normalColor,
-        //             },
-        //             emphasis: {
-        //                 areaColor: $normalColor,
-        //             }
-        //         },
-        //         label: {
-        //             emphasis: {
-        //                 show: false,
-        //             },
-        //         },
-        //         data: $data,
-        //     }],
-        // });
-        //
-        // $chart.on('click', function (params) {
-        //     if ($map[params.data.name]) {
-        //         window.location.href = $map[params.data.name].url;
-        //     }
-        // });
-    },
-    getRandomInt: function(min, max){
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
+        this.userGenderStatisticChartInit(statistic.user.gender);
+        this.userAnswerCountStatisticChartInit(statistic.user.answer_count);
+        this.userFollowerCountStatisticChartInit(statistic.user.follower_count);
+        this.userFollowingCountStatisticChartInit(statistic.user.following_count);
+        this.userLocationsStatisticChartInit(statistic.user.locations);
     },
 
     userGenderStatisticChartInit: function(statistic) {
@@ -288,22 +226,68 @@ var dataAnalysis = {
         statisticChart.setOption(option);
     },
 
+    getLocationData: (statistic) => {
+        let city = require('./city');
+        let province = require('./province');
+        var provinceData = {};
+
+        $.each(province, (key, item) => {
+            provinceData[item.proId] = item;
+        });
+
+        var cityData = $.map(city, (item, key) => {
+            item['province'] = provinceData[item.proId];
+            return item;
+        });
+
+        var mapData = {};
+        $.each(statistic, (name, item) => {
+            let flag = false;
+            for (let prov in provinceData) {
+                if (name.indexOf(prov['name']) >= 0) {
+                    mapData[prov['name']] = {
+                        name: prov['name'],
+                        count: item['count']
+                    };
+                    console.log(name);
+
+                    flag = true;
+                    return;
+                }
+            }
+            if (flag) {
+                return;
+            }
+            for (let city of cityData) {
+                if (name.indexOf(city['name']) >= 0) {
+                    mapData[city['province']['name']] = {
+                        name: city['province']['name'],
+                        count: item['count']
+                    };
+                    return;
+                }
+            }
+        });
+        return mapData;
+    },
+
     userLocationsStatisticChartInit: function(statistic) {
 
-        var statisticChart = echarts.init(document.getElementById('user_locations_statistic'));
+        var mapData = this.getLocationData(statistic);
 
-        var legendData =  $.map(statistic, function(item, name) {
+        let statisticChart = echarts.init(document.getElementById('user_locations_statistic'));
+
+        let legendData =  $.map(mapData, function(item, name) {
             return name;
         });
-        var seriesData =  $.map(statistic, function(item, name) {
+        let seriesData =  $.map(mapData, function(item, name) {
             return {
                 name: name,
                 value: item.count
             };
         });
-        // console.log(seriesData,legendData);
 
-        var option = {
+        let option = {
              title : {
                  text: '地域分布',
                  subtext: '知乎用户数据分析',
@@ -325,7 +309,7 @@ var dataAnalysis = {
                      type: 'pie',
                      radius : '55%',
                      center: ['50%', '60%'],
-                     data: statistic,
+                     data: seriesData,
                      itemStyle: {
                          emphasis: {
                              shadowBlur: 10,
@@ -336,9 +320,71 @@ var dataAnalysis = {
                  }
              ]
          };
-
-
         statisticChart.setOption(option);
-    },
 
+        let statisticChart2 = echarts.init(document.getElementById('user_locations_statistic_map'));
+
+        let option2 = {
+            title: {
+                text: '省份分布统计',
+                subtext: '知乎用户数据分析',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data:legendData
+            },
+            visualMap: {
+                min: 0,
+                max: this.getMaxLocationCount(statistic),
+                left: 'left',
+                top: 'bottom',
+                text: ['高','低'],           // 文本，默认为数值文本
+                calculable: true
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: 'center',
+                feature: {
+                    dataView: {readOnly: false},
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            series: [
+                {
+                    name: '省份人数统计',
+                    type: 'map',
+                    mapType: 'china',
+                    roam: false,
+                    label: {
+                        normal: {
+                            show: true
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    data: seriesData
+                }
+            ]
+        };
+
+        statisticChart2.setOption(option2);
+    },
+    getMaxLocationCount: (statistic)=> {
+        var max = 0;
+        $.each(statistic, (key, item) => {
+            if (max < item.count) {
+                max = item.count;
+            }
+        });
+        return max;
+    }
 };
