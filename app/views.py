@@ -6,8 +6,6 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic.base import TemplateView
 from app.models import *
-from django.core import serializers
-import json
 
 class DataAnalysisPageView(TemplateView):
     template_name = 'app/data_analysis.html'
@@ -47,16 +45,39 @@ class DataAnalysisPageView(TemplateView):
                 },
             }
         }
-        users = Users.objects.all();
+        users = Users.objects.only('locations', 'educations')
         user_location_statistic = {}
+        user_major_statistic = {}
+        user_major_count = 0;
         for user in users:
+            # location statistic
             if user.locations:
                 for location in user.locations:
                     if (location['name'] in user_location_statistic):
                         user_location_statistic[location['name']]['count'] += 1
                     else:
-                        user_location_statistic[location['name']] = { 'count': 1 }
+                        user_location_statistic[location['name']] = {
+                            'name': location['name'],
+                            'count': 1
+                        }
+            # major statistic
+            if user.educations:
+                for education in user.educations:
+                    try:
+                        if education['major']:
+                            if (education['major']['name'] in user_major_statistic):
+                                user_major_statistic[education['major']['name']]['count'] += 1
+                            else:
+                                user_major_statistic[education['major']['name']] = {
+                                    'name': education['major']['name'],
+                                    'count': 1
+                                }
+                            user_major_count += 1;
+                    except KeyError:
+                        pass
         context['statistic']['user']['locations'] = user_location_statistic
+        context['statistic']['user']['major'] = user_major_statistic
+        context['statistic']['user']['major_count'] = user_major_count
 
         return context
 

@@ -173,6 +173,29 @@
                 </tbody>
             </table>
         </div>
+        <div class="table-block">
+            <h3>专业分布</h3>
+            <p></p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>专业</th>
+                        <th>人数</th>
+                        <th>比例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tbody>
+                        {% for name, major in statistic.user.major.items %}
+                            <tr>
+                                <td>{{ name }}</td>
+                                <td>{{ major.count }}</td>
+                                <td>{{ major.count|divide:statistic.user.major_count|percent:2 }}</td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
     <div id="map" class="map-container"></div>
     <div id="user_gender_statistic" style="width: 600px;height:400px;"></div>
