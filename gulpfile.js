@@ -49,16 +49,20 @@ gulp.task('sass', function () {
 
 gulp.task('copy-vendor', function () {
 
+    gulp.src('app/assets/vendor/**/**.*')
+        .pipe(gulp.dest('app/static/vendor'))
+
+    gulp.src('app/assets/vendor/**/*.*.*')
+        .pipe(gulp.dest('app/static/vendor'))
+        
     gulp.src(global.conf.path.vendor + '/**/*.js')
         .pipe(gulp.dest(global.conf.path.dist + '/vendor/js'));
 
     gulp.src(global.conf.path.vendor + '/echarts/map/**/*.js')
         .pipe(gulp.dest(global.conf.path.dist + '/vendor/js/echarts/map'))
 
-    gulp.src('app/assets/vendor/**/*.*')
-        .pipe(gulp.dest('app/static/vendor'))
-        .pipe(notify('copy-vendor task done'));
 });
+
 
 // copy from gulpfile-django , and add es6 for watch scripts
 gulp.task('watch', ['scripts-vendor', 'scripts', 'fonts'], function () {
