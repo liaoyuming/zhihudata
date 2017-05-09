@@ -1,0 +1,20 @@
+html, .bg-1 {
+  background-image: url(../vendor/images/noise.png), url(../vendor/images/backgrounds/1.jpg);
+  background-repeat: repeat, no-repeat;
+  background-position: left top;
+  background-size: auto, cover;
+}
+
+body {
+    overflow: scroll;
+}
+
+
+.nav.rand_nav {
+    border-bottom: 1px solid #a87769 !important;
+
+    > li.active > a {
+        color: white !important;
+        background-color: #a87565 !important;
+    }
+}

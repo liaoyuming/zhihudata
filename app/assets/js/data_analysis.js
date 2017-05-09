@@ -2,9 +2,12 @@ module.exports = {
     init: function (statistic) {
         this.userGenderStatisticChartInit(statistic.user.gender);
         this.userAnswerCountStatisticChartInit(statistic.user.answer_count);
+        this.userAnswerCountLevelStatisticChartInit(statistic.user.answer_count);
         this.userFollowerCountStatisticChartInit(statistic.user.follower_count);
         this.userFollowingCountStatisticChartInit(statistic.user.following_count);
         this.userLocationsStatisticChartInit(statistic.user.locations);
+        this.userLocationsStatisticMapChartInit(statistic.user.locations);
+        console.log(statistic);
     },
 
     userGenderStatisticChartInit: function(statistic) {
@@ -53,7 +56,6 @@ module.exports = {
     userAnswerCountStatisticChartInit: function(statistic) {
 
         var statisticChart = echarts.init(document.getElementById('user_answer_count_statistic'));
-        var statisticChart2 = echarts.init(document.getElementById('user_answer_count_statistic2'));
 
         var option = {
              title : {
@@ -91,9 +93,15 @@ module.exports = {
              ]
          };
          statisticChart.setOption(option);
+    },
 
-         var option2 = {
+    userAnswerCountLevelStatisticChartInit: function(statistic) {
+
+        var statisticChart = echarts.init(document.getElementById('user_answer_count_level_statistic'));
+
+        var option = {
               title : {
+
                   text: '问题回答数目',
                   subtext: '知乎用户数据分析',
                   x:'center'
@@ -129,7 +137,7 @@ module.exports = {
                   }
               ]
           };
-          statisticChart2.setOption(option2);
+          statisticChart.setOption(option);
     },
 
     userFollowerCountStatisticChartInit: function(statistic) {
@@ -297,12 +305,12 @@ module.exports = {
                  trigger: 'item',
                  formatter: "{a} <br/>{b} : {c} ({d}%)"
              },
-             legend: {
-                 orient: 'vertical',
-                 left: 'left',
-                 data: legendData
-
-             },
+            //  legend: {
+            //      orient: 'vertical',
+            //      left: 'left',
+            //      data: legendData
+             //
+            //  },
              series : [
                  {
                      name: '地域分布',
@@ -322,12 +330,28 @@ module.exports = {
          };
         statisticChart.setOption(option);
 
-        let statisticChart2 = echarts.init(document.getElementById('user_locations_statistic_map'));
+    },
 
-        let option2 = {
+    userLocationsStatisticMapChartInit: function(statistic) {
+
+        var mapData = this.getLocationData(statistic);
+
+        let legendData =  $.map(mapData, function(item, name) {
+            return name;
+        });
+        let seriesData =  $.map(mapData, function(item, name) {
+            return {
+                name: name,
+                value: item.count
+            };
+        });
+
+        let statisticChart = echarts.init(document.getElementById('user_locations_statistic_map'));
+
+        let option = {
             title: {
-                text: '省份分布统计',
-                subtext: '知乎用户数据分析',
+                text: '省份分布统计图',
+                subtext: '',
                 left: 'center'
             },
             tooltip: {
@@ -376,9 +400,9 @@ module.exports = {
             ]
         };
 
-        statisticChart2.setOption(option2);
+        statisticChart.setOption(option);
     },
-    getMaxLocationCount: (statistic)=> {
+    getMaxLocationCount: (statistic) => {
         var max = 0;
         $.each(statistic, (key, item) => {
             if (max < item.count) {

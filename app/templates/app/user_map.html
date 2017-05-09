@@ -1,0 +1,151 @@
+{% extends 'app/layout.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% load helper %}
+
+
+{% block bootstrap3_extra_head %}
+    <link rel="icon" type="image/ico" href="http://tattek.com/minimal/assets/images/favicon.ico" />
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "vendor/css/animate/animate.min.css" %}">
+    <link type="text/css" rel="stylesheet" media="all" href="{% static "vendor/js/mmenu/css/jquery.mmenu.all.css" %}" />
+    <link rel="stylesheet" href="{% static "vendor/js/videobackground/css/jquery.videobackground.css" %}">
+
+
+    <link href="{% static "vendor/css/minimal.css" %}" rel="stylesheet">
+    <link href="{% static "css/index.css" %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" %}"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" %}"></script>
+    <![endif]-->
+
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Make page fluid -->
+      <div class="row">
+
+
+      {% include "app/navbar_left.html" %}
+
+
+        <!-- Page content -->
+        <div id="content" class="col-md-12">
+
+          <!-- page header -->
+          <div class="pageheader">
+
+            <h2><i class="fa fa-compass" style="line-height: 48px;padding-left: 0;"></i> 省份分布 <span>用户数据统计分析</span></h2>
+
+          </div>
+          <!-- /page header -->
+
+
+          <!-- content main container -->
+          <div class="main">
+
+
+
+
+            <!-- row -->
+            <div class="row">
+
+              <!-- col 12 -->
+              <div class="col-md-12">
+
+
+
+                <!-- tile -->
+                <section class="tile transparent">
+
+
+                  <!-- tile header -->
+                  <div class="tile-header nopadding">
+                    <div class="controls">
+                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
+                  </div>
+                  <!-- /tile header -->
+
+                  <!-- tile body -->
+                  <div class="tile-body tab-content nopadding transparent">
+                      <div id="user_locations_statistic_map" style="width: 1150px;height:600px;"></div>
+                  </div>
+                  <!-- /tile body -->
+                </section>
+                <!-- /tile -->
+
+
+
+
+              </div>
+              <!-- /col 12 -->
+
+
+
+            </div>
+            <!-- /row -->
+
+
+
+          </div>
+          <!-- /content container -->
+
+
+
+
+
+
+        </div>
+        <!-- Page content end -->
+      </div>
+      <!-- Make page fluid-->
+
+
+
+
+    </div>
+    <!-- Wrap all page content end -->
+
+
+
+    <section class="videocontent" id="video"></section>
+
+
+
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
+
+    <script type="text/javascript" src="{% static "vendor/js/mmenu/js/jquery.mmenu.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/sparkline/jquery.sparkline.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/nicescroll/jquery.nicescroll.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/animate-numbers/jquery.animateNumbers.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/videobackground/jquery.videobackground.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/blockui/jquery.blockUI.js" %}"></script>
+
+
+    <script src="{% static "vendor/js/minimal.min.js" %}"></script>
+    <script type='text/javascript' src='{% static "vendor/js/echarts/dist/echarts.min.js" %}' charset='utf-8'></script>
+    <script type='text/javascript' src='{% static "vendor/js/echarts/map/js/china.js" %}' charset='utf-8'></script>
+    <script type='text/javascript' src='{% static "app.js" %}' charset='utf-8'></script>
+
+    <script>
+    $(function() {
+        var statistic = {{ statistic|json_dumps }};
+        App.DataAnalysis.userLocationsStatisticMapChartInit(statistic.user.locations);
+    });
+    </script>
+{% endblock %}

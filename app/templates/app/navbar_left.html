@@ -1,0 +1,106 @@
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
+
+
+
+  <!-- Branding -->
+  <div class="navbar-header col-md-2">
+    <a class="navbar-brand" href="index.html">
+        <strong>知乎</strong>数据分析
+    </a>
+    <div class="sidebar-collapse">
+      <a href="#">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- .nav-collapse -->
+  <div class="navbar-collapse">
+
+    <!-- Page refresh -->
+    <ul class="nav navbar-nav refresh">
+      <li class="divided">
+        <a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
+      </li>
+    </ul>
+    <!-- /Page refresh -->
+
+
+
+
+    <!-- Sidebar -->
+    <ul class="nav navbar-nav side-nav" id="sidebar">
+
+      <li class="collapsed-content">
+        <ul>
+          <li class="search"><!-- Collapsed search pasting here at 768px --></li>
+        </ul>
+      </li>
+
+      <li class="navigation" id="navigation">
+        <a href="#" class="sidebar-toggle" data-toggle="#navigation">Navigation <i class="fa fa-angle-up"></i></a>
+
+        <ul class="menu">
+
+          <li class="{% if request.resolver_match.url_name == 'index' %} active {% endif %}">
+            <a href="{% url 'index' %}">
+              <i class="fa fa-tachometer"></i> 数据统计分析
+              <span class="badge badge-red"></span>
+            </a>
+          </li>
+
+          <li class="{% if request.resolver_match.url_name == 'user_map' %} active {% endif %}">
+            <a href="{% url 'user_map' %}">
+                <i class="fa fa-globe" aria-hidden="true"></i> 用户省份分布
+              <!-- <b class="fa fa-plus dropdown-plus"></b> -->
+            </a>
+            <!-- <ul class="dropdown-menu">
+              <li>
+                <a href="form-elements.html">
+                  <i class="fa fa-caret-right"></i> Common Elements
+                </a>
+              </li>
+              <li>
+                <a href="validation-elements.html">
+                  <i class="fa fa-caret-right"></i> Validation
+                </a>
+              </li>
+              <li>
+                <a href="form-wizard.html">
+                  <i class="fa fa-caret-right"></i> Form Wizard
+                </a>
+              </li>
+            </ul> -->
+          </li>
+
+          <li class="{% if request.resolver_match.url_name == 'user_major' %} active {% endif %}">
+            <a href="{% url 'user_major' %}">
+              <i class="fa fa-pencil"></i> 用户专业统计
+            </a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'user_rank' %} active {% endif %}">
+            <a href="{% url 'user_rank' %}">
+              <i class="fa fa-pencil"></i> 用户排行榜
+            </a>
+          </li>
+
+          <li class="{% if request.resolver_match.url_name == 'answer_rank' %} active {% endif %}">
+            <a href="{% url 'answer_rank' %}">
+              <i class="fa fa-pencil"></i> 回答排行榜
+            </a>
+          </li>
+
+        </ul>
+
+      </li>
+
+
+    </ul>
+    <!-- Sidebar end -->
+  </div>
+  <!--/.nav-collapse -->
+</div>
+<!-- Fixed navbar end -->

@@ -1,0 +1,14 @@
+{% extends 'app/bootstrap.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% load helper %}
+
+{% block bootstrap3_content %}
+
+    <!-- Preloader -->
+    <div class="mask"><div id="loader"></div></div>
+    <!--/Preloader -->
+    <div class="bg-1">
+        {% block content %}(no content){% endblock %}
+    </div>
+{% endblock %}

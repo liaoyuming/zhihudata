@@ -1,0 +1,177 @@
+{% extends 'app/layout.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% load helper %}
+
+
+{% block bootstrap3_extra_head %}
+    <link rel="icon" type="image/ico" href="http://tattek.com/minimal/assets/images/favicon.ico" />
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "vendor/css/animate/animate.min.css" %}">
+    <link type="text/css" rel="stylesheet" media="all" href="{% static "vendor/js/mmenu/css/jquery.mmenu.all.css" %}" />
+    <link rel="stylesheet" href="{% static "vendor/js/videobackground/css/jquery.videobackground.css" %}">
+
+
+    <link href="{% static "vendor/css/minimal.css" %}" rel="stylesheet">
+    <link href="{% static "css/index.css" %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" %}"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" %}"></script>
+    <![endif]-->
+
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Make page fluid -->
+      <div class="row">
+
+
+      {% include "app/navbar_left.html" %}
+
+
+        <!-- Page content -->
+        <div id="content" class="col-md-12">
+
+          <!-- page header -->
+          <div class="pageheader">
+
+            <h2><i class="fa fa-compass" style="line-height: 48px;padding-left: 0;"></i> 专业统计 <span>用户专业统计分析</span></h2>
+
+          </div>
+          <!-- /page header -->
+
+
+          <!-- content main container -->
+          <div class="main">
+            <!-- row -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- tile -->
+                    <section class="tile color transparent-black">
+
+
+
+
+                      <!-- tile header -->
+                      <div class="tile-header">
+                        <h1><strong>专业</strong> 统计</h1>
+                        <!-- <div class="search">
+                          <input type="text" placeholder="Search...">
+                        </div> -->
+                      </div>
+                      <!-- /tile header -->
+
+
+                      <!-- tile body -->
+                      <div class="tile-body no-vpadding">
+                        <div class="table-responsive">
+                          <table class="table table-custom table-sortable nomargin">
+                            <thead>
+                              <tr>
+                                <th class="">专业</th>
+                                <th class="sortable sort-numeric sort-asc">人数</th>
+                                <th class="">比例</th>
+                              </tr>
+                            </thead>
+                            <tbody id="major_body">
+                                {% for name, major in statistic.user.major.items %}
+                                  <tr class="major_tr">
+                                    <td class="major-name">{{ name }}</td>
+                                    <td class="major-count">{{ major.count }}</td>
+                                    <td class="progress-cell">
+                                      <div class="progress-info">
+                                        <div class="percent"><span class="animate-number" data-value="{{ major.count|divide:statistic.user.major_count|percent:2 }}" data-animation-duration="1500">0</span></div>
+                                      </div>
+                                      <div class="progress progress-little">
+                                        <div class="progress-bar progress-bar-transparent-white animate-progress-bar" data-percentage="{{ major.count|divide:statistic.user.major_count|percent:2 }}"></div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                {% endfor %}
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- /tile body -->
+
+
+                      <!-- tile footer -->
+                      <!-- <div class="tile-footer text-center">
+                        <ul class="pagination pagination-sm nomargin pagination-custom">
+                          <li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                          <li class="active"><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li>
+                          <li><a href="#">4</a></li>
+                          <li><a href="#">5</a></li>
+                          <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
+                      </div> -->
+                      <!-- /tile footer -->
+
+
+
+                    </section>
+                    <!-- /tile -->
+
+
+                </div>
+            </div>
+        <!-- /row -->
+
+
+
+          </div>
+          <!-- /content container -->
+
+
+
+
+
+
+        </div>
+        <!-- Page content end -->
+      </div>
+      <!-- Make page fluid-->
+    </div>
+    <!-- Wrap all page content end -->
+
+
+    <section class="videocontent" id="video"></section>
+
+
+
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
+
+    <script type="text/javascript" src="{% static "vendor/js/mmenu/js/jquery.mmenu.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/sparkline/jquery.sparkline.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/nicescroll/jquery.nicescroll.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/animate-numbers/jquery.animateNumbers.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/videobackground/jquery.videobackground.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/js/blockui/jquery.blockUI.js" %}"></script>
+
+
+    <script src="{% static "vendor/js/minimal.min.js" %}"></script>
+    <script type='text/javascript' src='{% static "app.js" %}' charset='utf-8'></script>
+
+    <script>
+    $(function() {
+
+    });
+    </script>
+{% endblock %}
