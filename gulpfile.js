@@ -5,17 +5,18 @@ global.conf = require('./gulpvars.json');
 require('./node_modules/gulpfile-django/gulp');
 
 var gulp = require('gulp');
-
-gulp.task('scripts-lib', function() {
-    gulp.src(global.conf.path.vendor + '/**/*.js')
-        .pipe(gulp.dest(global.conf.path.dist + '/vendor/js'));
-})
-
 var fs = require("fs");
 var browserify = require("browserify");
 var babelify = require("babelify");
 var source = require('vinyl-source-stream');
 var gutil = require('gulp-util');
+
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCss = require('gulp-clean-css');
+var browserSync = require('browser-sync');
+var notify = require('gulp-notify');
+var sourcemaps = require('gulp-sourcemaps');
 
 // Lets bring es6 to es5 with this.
 // Babel - converts ES6 code to ES5 - however it doesn't handle imports.
@@ -30,11 +31,34 @@ gulp.task('es6', function() {
 		.bundle()
 		.on('error',gutil.log)
 		.pipe(source('app.js'))
-    	.pipe(gulp.dest(global.conf.path.dist));
+    	.pipe(gulp.dest(global.conf.path.dist))
+        .pipe(notify('es6 task done'));
 });
 
+gulp.task('sass', function () {
+    gulp.src(conf.path.sass + '/**/*.{sass,scss}')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(cleanCss())
+        .pipe(sourcemaps.write('./maps/'))
+        .pipe(gulp.dest(conf.path.css))
+        .pipe(browserSync.stream())
+        .pipe(notify('sass task done'));
+});
 
-var browserSync = require('browser-sync');
+gulp.task('copy-vendor', function () {
+
+    gulp.src(global.conf.path.vendor + '/**/*.js')
+        .pipe(gulp.dest(global.conf.path.dist + '/vendor/js'));
+
+    gulp.src(global.conf.path.vendor + '/echarts/map/**/*.js')
+        .pipe(gulp.dest(global.conf.path.dist + '/vendor/js/echarts/map'))
+
+    gulp.src('app/assets/vendor/**/*.*')
+        .pipe(gulp.dest('app/static/vendor'))
+        .pipe(notify('copy-vendor task done'));
+});
 
 // copy from gulpfile-django , and add es6 for watch scripts
 gulp.task('watch', ['scripts-vendor', 'scripts', 'fonts'], function () {
@@ -47,4 +71,4 @@ gulp.task('watch', ['scripts-vendor', 'scripts', 'fonts'], function () {
       conf.path.image + '/**/*.{svg,jpg,png,jpeg,gif}']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['es6','watch']);
+gulp.task('default', ['es6', 'scripts-vendor', 'copy-vendor', 'copy-vendor', 'scripts', 'sass', 'fonts']);
