@@ -1,6 +1,7 @@
 node_modules
 bower_components
 static
+tmp
 *.pyc
 app/static
 zhihu_data/settings.py

@@ -5,7 +5,7 @@
 {% load helper %}
 
 {% block bootstrap3_extra_head %}
-    <link rel="icon" type="image/ico" href="http://tattek.com/minimal/assets/images/favicon.ico" />
+    <link rel="icon" type="image/ico" href="" />
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static "vendor/css/animate/animate.min.css" %}">
@@ -87,10 +87,8 @@
                     </div>
                   </div>
                   <div class="back">
-                    <a href="#">
                       <i class="fa fa-bar-chart-o fa-4x"></i>
                       <span>用户统计</span>
-                    </a>
                   </div>
                 </div>
               </div>
@@ -112,10 +110,8 @@
                     </div>
                   </div>
                   <div class="back">
-                    <a href="#">
                       <i class="fa fa-bar-chart-o fa-4x"></i>
                       <span>问题统计</span>
-                    </a>
                   </div>
                 </div>
               </div>
@@ -137,10 +133,8 @@
                     </div>
                   </div>
                   <div class="back">
-                    <a href="#">
                       <i class="fa fa-bar-chart-o fa-4x"></i>
                       <span>回答统计</span>
-                    </a>
                   </div>
                 </div>
               </div>
@@ -164,7 +158,6 @@
                   <div class="tile-header color transparent-black textured rounded-top-corners">
                     <h1><strong>统计</strong> 粉丝和关注</h1>
                     <div class="controls">
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
                       <a href="#" class="remove"><i class="fa fa-times"></i></a>
                     </div>
                   </div>
@@ -188,10 +181,9 @@
                   <!-- tile header -->
                   <div class="tile-header">
                     <h1><strong>粉丝数</strong> 统计</h1>
-                    <!-- <div class="controls">
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                    <div class="controls">
                       <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div> -->
+                    </div>
                   </div>
                   <!-- /tile header -->
 
@@ -284,10 +276,9 @@
                   <!-- tile header -->
                   <div class="tile-header">
                     <h1><strong>关注数</strong> 统计</h1>
-                    <!-- <div class="controls">
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                    <div class="controls">
                       <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div> -->
+                    </div>
                   </div>
                   <!-- /tile header -->
 
@@ -381,6 +372,9 @@
                   <!-- tile header -->
                   <div class="tile-header">
                     <h1><strong>问题回答</strong> 统计</h1>
+                    <div class="controls">
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
                   </div>
                   <!-- /tile header -->
 
@@ -475,7 +469,6 @@
                   <div class="tile-header">
                     <h1><strong>性别</strong> 统计</h1>
                     <div class="controls">
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
                       <a href="#" class="remove"><i class="fa fa-times"></i></a>
                     </div>
                   </div>
@@ -491,34 +484,6 @@
                 <!-- /tile -->
 
 
-
-
-
-                <!-- tile -->
-                <section class="tile color transparent-black">
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>区域</strong> 统计</h1>
-                    <div class="controls">
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-                      <div id="user_locations_statistic" style="width: 360px; height:360px;"></div>
-                  </div>
-                  <!-- /tile body -->
-
-
-
-
-                </section>
-                <!-- /tile -->
-
                 <!-- tile -->
                 <section class="tile color transparent-black">
 
@@ -526,7 +491,6 @@
                   <div class="tile-header">
                     <h1><strong>回答数</strong> 统计</h1>
                     <div class="controls">
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
                       <a href="#" class="remove"><i class="fa fa-times"></i></a>
                     </div>
                   </div>
@@ -540,6 +504,33 @@
 
                 </section>
                 <!-- /tile -->
+
+
+                <!-- tile -->
+                <section class="tile color transparent-black">
+
+                  <!-- tile header -->
+                  <div class="tile-header">
+                    <h1><strong>区域</strong> 统计</h1>
+                    <div class="controls">
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
+                  </div>
+                  <!-- /tile header -->
+
+                  <!-- tile body -->
+                  <div class="tile-body">
+                      <div id="user_locations_statistic" style="width: 360px; height:500px;"></div>
+                  </div>
+                  <!-- /tile body -->
+
+
+
+
+                </section>
+                <!-- /tile -->
+
+
 
               </div>
               <!-- /col 4 -->
@@ -593,8 +584,6 @@
         var majorByCount = Object.values(statistic.user.major).sort(function(a,b) {
             return b.count - a.count;
         });
-        console.log(statistic, majorByCount);
-
 
         var major_length = majorByCount.length;
         var major_page_size = 5;
@@ -752,27 +741,6 @@
         $(this).toggleClass('done');
       });
 
-      // Initialize tabDrop
-    //   $('.tabdrop').tabdrop({text: '<i class="fa fa-th-list"></i>'});
-      //
-    //   //load wysiwyg editor
-    //   $('#quick-message-content').summernote({
-    //     toolbar: [
-    //       //['style', ['style']], // no style button
-    //       ['style', ['bold', 'italic', 'underline', 'clear']],
-    //       ['fontsize', ['fontsize']],
-    //       ['color', ['color']],
-    //       ['para', ['ul', 'ol', 'paragraph']],
-    //       ['height', ['height']],
-    //       //['insert', ['picture', 'link']], // no insert buttons
-    //       //['table', ['table']], // no table button
-    //       //['help', ['help']] //no help button
-    //     ],
-    //     height: 143   //set editable area's height
-    //   });
-
-      //multiselect input
-    //   $(".chosen-select").chosen({disable_search_threshold: 10});
 
     })
 

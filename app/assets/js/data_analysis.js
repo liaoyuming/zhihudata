@@ -247,17 +247,16 @@ module.exports = {
             item['province'] = provinceData[item.proId];
             return item;
         });
-
         var mapData = {};
         $.each(statistic, (name, item) => {
             let flag = false;
-            for (let prov in provinceData) {
-                if (name.indexOf(prov['name']) >= 0) {
+            for (let key in provinceData) {
+                let prov = provinceData[key];
+                if (prov['name'].indexOf(name) >= 0) {
                     mapData[prov['name']] = {
                         name: prov['name'],
                         count: item['count']
                     };
-                    console.log(name);
 
                     flag = true;
                     return;
@@ -267,7 +266,7 @@ module.exports = {
                 return;
             }
             for (let city of cityData) {
-                if (name.indexOf(city['name']) >= 0) {
+                if (city['name'].indexOf(name) >= 0) {
                     mapData[city['province']['name']] = {
                         name: city['province']['name'],
                         count: item['count']
@@ -364,7 +363,7 @@ module.exports = {
             },
             visualMap: {
                 min: 0,
-                max: this.getMaxLocationCount(statistic),
+                max: this.getMaxLocationCount(mapData),
                 left: 'left',
                 top: 'bottom',
                 text: ['高','低'],           // 文本，默认为数值文本

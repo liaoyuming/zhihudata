@@ -5,7 +5,7 @@
 
 
 {% block bootstrap3_extra_head %}
-    <link rel="icon" type="image/ico" href="http://tattek.com/minimal/assets/images/favicon.ico" />
+    <link rel="icon" type="image/ico" href="" />
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static "vendor/css/animate/animate.min.css" %}">
@@ -58,15 +58,12 @@
                     <!-- tile -->
                     <section class="tile color transparent-black">
 
-
-
-
                       <!-- tile header -->
                       <div class="tile-header">
                         <h1><strong>专业</strong> 统计</h1>
-                        <!-- <div class="search">
+                        <div class="search" id="search_major">
                           <input type="text" placeholder="Search...">
-                        </div> -->
+                        </div>
                       </div>
                       <!-- /tile header -->
 
@@ -78,7 +75,8 @@
                             <thead>
                               <tr>
                                 <th class="">专业</th>
-                                <th class="sortable sort-numeric sort-asc">人数</th>
+                                <th class="">人数</th>
+                                <!-- <th class="sortable sort-numeric sort-asc">人数</th> -->
                                 <th class="">比例</th>
                               </tr>
                             </thead>
@@ -171,7 +169,19 @@
 
     <script>
     $(function() {
-
+        $('#search_major').keydown(function(event) {
+            if(event.keyCode == 13) {
+                var search = $(this).find('input').val();
+                $('#major_body').find('.major-name').each(function(index) {
+                    console.log($(this).text(), $(this).text(), search, $(this).text().indexOf(search));
+                    if ($(this).text().indexOf(search) >= 0) {
+                        $(this).parent().show();
+                    }else {
+                        $(this).parent().hide();
+                    }
+                });
+           }
+        });
     });
     </script>
 {% endblock %}

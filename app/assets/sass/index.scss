@@ -18,3 +18,23 @@ body {
         background-color: #a87565 !important;
     }
 }
+
+.card-container .card  {
+    .front .media {
+        margin: 10px;
+    }
+
+    .back {
+        font-size: 18px;
+        cursor: default;
+        i{
+            display: block;
+            color: #717171;
+        }
+        span{
+            color: #717171;
+            font-weight: 300;
+            line-height: 30px;
+        }
+    }
+}
