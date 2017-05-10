@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic.base import TemplateView
 from app.models import *
-
+from django.core.cache import cache
 
 class IndexPageView(TemplateView):
     template_name = 'app/index.html'
@@ -17,7 +17,7 @@ class IndexPageView(TemplateView):
             'answer': Answers.objects.count(),
             'question': Questions.objects.count(),
         }
-        context['statistic'] = getStatistic();
+        context['statistic'] = getStatistic(self.request.GET.get('clear_cache', 0));
         return context
 
 class UserMapPageView(TemplateView):
@@ -25,7 +25,7 @@ class UserMapPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(UserMapPageView, self).get_context_data(**kwargs)
-        context['statistic'] = getStatistic();
+        context['statistic'] = getStatistic(self.request.GET.get('clear_cache', 0));
         return context
 
 
@@ -34,7 +34,7 @@ class UserMajorPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(UserMajorPageView, self).get_context_data(**kwargs)
-        context['statistic'] = getStatistic();
+        context['statistic'] = getStatistic(self.request.GET.get('clear_cache', 0));
         return context
 
 class UserRankPageView(TemplateView):
@@ -92,7 +92,7 @@ class DataAnalysisPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(DataAnalysisPageView, self).get_context_data(**kwargs)
-        context['statistic'] = getStatistic();
+        context['statistic'] = getStatistic(self.request.GET.get('clear_cache', 0));
         return context
 
 class RankingStatisticsPageView(TemplateView):
@@ -132,8 +132,11 @@ class FetchingStatisticsPageView(TemplateView):
         }
         return context
 
-def getStatistic():
-    users = Users.objects.only('locations', 'educations')[:300]
+def     getStatistic(force = 0):
+    if cache.get('statistic') and not force:
+        return cache.get('statistic')
+
+    users = Users.objects.only('locations', 'educations')
     user_location_statistic = {}
     user_major_statistic = {}
     user_major_count = 0;
@@ -163,7 +166,7 @@ def getStatistic():
                         user_major_count += 1;
                 except KeyError:
                     pass
-    return {
+    statistic = {
         'user': {
             'gender': {
                 'all': Users.objects(gender__in = [0, 1]).count(),
@@ -199,3 +202,7 @@ def getStatistic():
             'major_count': user_major_count,
         }
     }
+
+    cache.set('statistic', statistic, 24 * 3600)
+
+    return statistic;
